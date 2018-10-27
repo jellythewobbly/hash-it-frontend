@@ -20,11 +20,11 @@ import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { Error404Module } from './main/404/error-404.module';
 import { LoginModule } from './main/login/login.module';
+import { DashboardModule } from './main/dashboard/dashboard.module';
+import { NetworksModule } from './main/networks/networks.module';
 
 import { SocialLoginModule, AuthServiceConfig } from 'angularx-social-login';
 import { GoogleLoginProvider } from 'angularx-social-login';
-
-import { environment } from 'environments/environment';
 
 import { FakeDbService } from 'app/fake-db/fake-db.service';
 
@@ -42,7 +42,6 @@ export function provideConfig() {
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full'},
-    // { path: 'features', loadChildren: './main/features/features.module#FeaturesModule' },
     { path: '**', redirectTo: '404' }
 ];
 
@@ -83,7 +82,9 @@ const appRoutes: Routes = [
         // App modules
         LayoutModule,
         Error404Module,
-        LoginModule
+        LoginModule,
+        DashboardModule,
+        NetworksModule
     ],
     providers: [
         [CanActivateViaAuthGuard],
