@@ -1,0 +1,33 @@
+<div id="login" class="inner-scroll" fxLayout="column" fxLayoutAlign="center center">
+
+    <div id="login-intro" fxFlex fxLayout="column" fxLayoutAlign="center center">
+
+        <div class="logo" [@animate]="{value:'*',params:{scale:'0.2'}}">
+            <img src="assets/images/logos/palo.png">
+        </div>
+
+        <div class="title" [@animate]="{value:'*',params:{delay:'200ms',y:'25px'}}">
+            Welcome to HASH-IT
+        </div>
+
+        <div class="description" [@animate]="{value:'*',params:{delay:'400ms',y:'25px'}}">
+            Manage Ethereum Networks and Smart Contracts
+        </div>
+
+    </div>
+    
+   
+    <div id="login-form-wrapper" fusePerfectScrollbar
+        [@animate]="{value:'*',params:{delay:'700ms',x:'100%'}}">
+
+        <div id="login-form">
+
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <button mat-raised-button class="google" (click)="signInWithGoogle()">
+                    Google Sign In
+                </button>
+            </div>
+        </div>
+    </div>
+    
+</div>
