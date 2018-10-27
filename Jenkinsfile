@@ -1,6 +1,6 @@
 @Library('Hash-it-Pipeline-Library') _
 
-useTipPodTemplate('Implementation_hashit'){
+useTipPodTemplate('Implementation_hashit2'){
 
 
         stage ('Checkout') {
@@ -8,20 +8,27 @@ useTipPodTemplate('Implementation_hashit'){
                 checkout scm
         }
 
-        stage("Docker Build & Push") {
+        stage("Build NPM") {
+           container('build-nodejs'){
+             npm install
+             npm run build
+          }
+        }
+
+        stage("Check") {
            container('build-docker2'){
-             useDockerRegistry{  
-               sh './deploy_docker.sh'
-            } 
+             sh 'ls -l'
           }
         }
 
 
-        stage("Kubernetes") {
-          container('kubectl'){
-              withEnv(['K8_NAMESPACE=hash-it-dev']) {
-              sh './deploy_k8s.sh'
-            }
-          }
-        }
+        // Stage 3
+        //stage("Kubernetes") {
+        //  container('kubectl'){
+        //      withEnv(['K8_NAMESPACE=hash-it-dev']) {
+        //      sh './deploy_k8s.sh'
+        //    }
+        //  }
+        //}
 }
+
