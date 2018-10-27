@@ -15,7 +15,7 @@ useTipPodTemplate('Implementation_hashit2'){
           }
         }
 
-        stage("Check") {
+        stage("Check test build0docker") {
            container('build-docker2'){
              sh 'ls -l'
           }
