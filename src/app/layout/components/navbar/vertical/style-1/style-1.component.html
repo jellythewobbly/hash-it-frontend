@@ -1,0 +1,40 @@
+<div class="navbar-top mat-green-600-bg">
+
+    <div class="logo">
+        <img class="logo-icon" src="assets/images/logos/palo-white.png">
+    </div>
+
+    <div class="buttons">
+
+        <button mat-icon-button class="toggle-sidebar-folded"
+                (click)="toggleSidebarFolded()" fxHide.lt-lg>
+            <mat-icon class="secondary-text">menu</mat-icon>
+        </button>
+
+        <button mat-icon-button class="toggle-sidebar-opened"
+                (click)="toggleSidebarOpened()" fxHide.gt-md>
+            <mat-icon class="secondary-text">arrow_back</mat-icon>
+        </button>
+
+    </div>
+
+</div>
+
+
+<div class="navbar-scroll-container" fusePerfectScrollbar [fusePerfectScrollbarOptions]="{suppressScrollX: true}">
+
+    <div class="user mat-green-600-bg" fxLayout="column">
+
+        <div class="h3 username">{{userName}}</div>
+        <div class="h5 email hint-text mt-8">{{userEmail}}</div>
+        <div class="avatar-container" [ngClass]="fuseConfig.layout.navbar.background">
+            <img class="avatar" [src]="userPhoto">
+        </div>
+
+    </div>
+
+    <div class="navbar-content">
+        <fuse-navigation layout="vertical"></fuse-navigation>
+    </div>
+
+</div>
